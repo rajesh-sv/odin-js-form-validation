@@ -1,39 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Form Validation</title>
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./styles.css" />
     <script src="./script.js" defer></script>
-</head>
-<body>
-    <form action="#" novalidate>
-        <label for="email"><span class="label">Email:</span>
-            <input type="email" id="email">
-            <div class="message"></div>
-        </label>
-        <label for="country"><span class="label">Country:</span>
-            <select name="country" id="country">
-                <option value="india">India</option>
-                <option value="france">France</option>
-                <option value="germany">Germany</option>
-            </select>
-            <div class="message"></div>
-        </label>
-        <label for="zip-code"><span class="label">Zip:</span>
-            <input type="text" id="zip-code">
-            <div class="message"></div>
-        </label>
-        <label for="password"><span class="label">Password:</span>
-            <input type="password" id="password">
-            <div class="message"></div>
-        </label>
-        <label for="confirm-password"><span class="label">Confirm Password:</span>
-            <input type="password" id="confirm-password">
-            <div class="message"></div>
-        </label>
-        <label><span class="label"></span><button type="submit">Submit</button></label>
+  </head>
+  <body>
+    <form action="#" novalidate autocomplete="off">
+      <label for="email"
+        ><span class="label">Email:</span>
+        <input type="email" id="email" autocomplete="off" required />
+        <div class="message hidden">
+          <p>Should be of the form <code>user@hostname</code></p>
+          <p>Ex: <code>john.doe@gmail.com</code></p>
+        </div>
+      </label>
+      <label for="country"
+        ><span class="label">Country:</span>
+        <select name="country" id="country">
+          <option value="india" selected>India</option>
+          <option value="france">France</option>
+          <option value="germany">Germany</option>
+        </select>
+      </label>
+      <label for="zip-code"
+        ><span class="label">Zip:</span>
+        <input type="tel" id="zip-code" autocomplete="off" required />
+        <div class="message hidden">
+          <p>Zip code rules based on country:</p>
+          <p>India: 6 Digits</p>
+          <p>France: 5 Digits</p>
+          <p>Germany: 4 Digits</p>
+        </div>
+      </label>
+      <label for="password"
+        ><span class="label">Password:</span>
+        <input type="password" id="password" required />
+        <div class="message hidden">
+          <p>Minimum 8 characters</p>
+          <p>Atleast 1 number</p>
+          <p>Atleast 1 special character (<code>!#@$...</code>)</p>
+          <p>Ex: <code>v0idw@lker</code></p>
+        </div>
+      </label>
+      <label for="confirm-password"
+        ><span class="label">Confirm Password:</span>
+        <input type="password" id="confirm-password" required />
+        <div class="message hidden">
+          <p>Should match the password entered in previous field</p>
+        </div>
+      </label>
+      <label
+        ><span class="label"></span><button type="submit">Submit</button></label
+      >
     </form>
-</body>
+  </body>
 </html>
